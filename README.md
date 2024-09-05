@@ -1,2 +1,8 @@
-# dataStructure2
-Repository created for the code versionament of data structure 2 discipline in UENF.
+# Data Structure 2
+Repository for the development of data structure codes in JAVA lang.
+In this repository you'll find sort algorithms, search algorithms, tree algorithms and others...
+
+And, don't forget...
+
+
+ 
