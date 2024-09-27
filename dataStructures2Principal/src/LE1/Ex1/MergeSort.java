@@ -4,31 +4,44 @@ package LE1.Ex1;
 //Com isso, ele é novamente montado de forma recursiva e comparando os subvetores pelo caminho.
 public class MergeSort {
 
-    public static int[] merge(int[] array, int base, int mid, int top){
-        int length1 = mid - base + 1, length2 = top - mid;
-        int[] left = new int[length1-1], right = new int[length2-1];
-        for(int i = 0; i < length1 - 1; i++){
-            left[i] = array[base + i];
-        }
-        for(int j = 0; j < length2 - 1; j++){
-            right[j] = array[mid + j + 1];
-        }
-        left[length1] = (int) Double.POSITIVE_INFINITY;
-        right[length2] = (int) Double.POSITIVE_INFINITY;
+    public static void merge(int[] v, int left, int middle, int right) {
 
-        int i = 0, j = 0;
-        for(int k = base; k < top; k++){
-            if(left[i] <= right[j]){
-                array[k] = left[i];
+        // transfere os elementos entre left e right para um array auxiliar.
+        int[] helper = new int[v.length];
+        for (int i = left; i <= right; i++) {
+            helper[i] = v[i];
+        }
+
+
+        int i = left;
+        int j = middle + 1;
+        int k = left;
+
+        while (i <= middle && j <= right) {
+
+            if (helper[i] <= helper[j]) {ls
+                v[k] = helper[i];
                 i++;
-            }else{
-                array[k] = right[j];
+            } else {
+                v[k] = helper[j];
                 j++;
             }
-        }
-        return array;
-    }
+            k++;
 
+        }
+
+        // se a metade inicial não foi toda consumida, faz o append.
+        while (i <= middle) {
+            v[k] = helper[i];
+            i++;
+            k++;
+        }
+
+        // Não precisamos nos preocupar se a metade final foi
+        // toda consumida, já que, se esse foi o caso, ela já está
+        // no array final.
+
+    }
 
     public static int[] sort(int[] array, int base, int top){
         if(base < top){
@@ -43,10 +56,10 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] myArray = {1, 5, 32, 21, 54, 654, 4321, 3421, 7, 8, 86, 89, 65, 99, 90643, 543};
-        int[] sorted = MergeSort.sort(myArray, 0, myArray.length);
+        MergeSort.sort(myArray, 0, myArray.length - 1);
 
-        for (int i = 0; i < myArray.length ; i++) {
-            System.out.println(sorted);
+        for (int i = 0; i < myArray.length - 1 ; i++) {
+            System.out.println(myArray[i]);
         }
 
     }
