@@ -19,7 +19,7 @@ public class MergeSort {
 
         while (i <= middle && j <= right) {
 
-            if (helper[i] <= helper[j]) {ls
+            if (helper[i] <= helper[j]) {
                 v[k] = helper[i];
                 i++;
             } else {
@@ -51,17 +51,6 @@ public class MergeSort {
             MergeSort.merge(array, base, mid, top);
         }
         return array;
-
-    }
-
-    public static void main(String[] args) {
-        int[] myArray = {1, 5, 32, 21, 54, 654, 4321, 3421, 7, 8, 86, 89, 65, 99, 90643, 543};
-        MergeSort.sort(myArray, 0, myArray.length - 1);
-
-        for (int i = 0; i < myArray.length - 1 ; i++) {
-            System.out.println(myArray[i]);
-        }
-
     }
 
 }
