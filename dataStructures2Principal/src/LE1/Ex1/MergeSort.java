@@ -4,42 +4,46 @@ package LE1.Ex1;
 //Com isso, ele é novamente montado de forma recursiva e comparando os subvetores pelo caminho.
 public class MergeSort {
 
-    public static void merge(int[] v, int left, int middle, int right) {
+    public static void merge(int[] array, int base, int mid, int top) {
 
-        // transfere os elementos entre left e right para um array auxiliar.
-        int[] helper = new int[v.length];
-        for (int i = left; i <= right; i++) {
-            helper[i] = v[i];
+        //Nesse abordagem não vamos literalmente quebras um vetor maior em dois subvetores, vamos simular essa ideia.
+        //Utilizaremos um vetor auxiliar e temporário, que é criado e destruído a cada iteração do sort;
+        //Nele copiamos elemento por elemento do nosso vetor original.
+        int[] helper = new int[array.length];
+        for (int i = base; i <= top; i++) {
+            helper[i] = array[i];
         }
 
+        //Criamos iteradores para fazer a organização, o i recebe o valor da base, que será 0 no lado esquerdo e também pode ser outro quando passamos mid + 1
+        //j = é iniciado como mid + 1, analisa o que tem depois da metade no nosso vetor auxiliar
 
-        int i = left;
-        int j = middle + 1;
-        int k = left;
+        int i = base;
+        int j = mid + 1;
+        int k = base;
 
-        while (i <= middle && j <= right) {
-
+        //Percorre o vetor com dois iteradoes, um na base e outro que começa no primeiro elemento pois o central
+        while (i <= mid && j <= top) {
+        //Simula as comparações em dois vetores diferentes em um vetor só, com base nisso faz comparações e insere no vetor final
             if (helper[i] <= helper[j]) {
-                v[k] = helper[i];
+                array[k] = helper[i];
                 i++;
             } else {
-                v[k] = helper[j];
+                array[k] = helper[j];
                 j++;
             }
             k++;
 
         }
 
-        // se a metade inicial não foi toda consumida, faz o append.
-        while (i <= middle) {
-            v[k] = helper[i];
+      //Caso tenha estourado o while com base em j, aqui inserimos os elementos da primeira metade do nosso vetor
+        //Essa condição é dada somente a primeira metade justamente por estarmos simulando que temos dois vetores, quando na verdade temos só um.
+        //Com isso, não há necessidade de preocupação caso o loop de cima tenha estourado com base em i, pois de toda forma a segunda metade já está inserida no vetor
+        while (i <= mid) {
+            array[k] = helper[i];
             i++;
             k++;
         }
 
-        // Não precisamos nos preocupar se a metade final foi
-        // toda consumida, já que, se esse foi o caso, ela já está
-        // no array final.
 
     }
 
