@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BucketSort {
-    // Insertion sort function to sort individual buckets
+    // algoritmo de insertion sort para organizar cada bucket
     public static void insertionSort(List<Float> bucket) {
         for (int i = 1; i < bucket.size(); ++i) {
             float key = bucket.get(i);
@@ -16,28 +16,28 @@ public class BucketSort {
         }
     }
 
-    // Function to sort arr[] of size n using bucket sort
+    // iniciando o bucketsort
     public static void sort(float[] arr) {
         int n = arr.length;
 
-        // 1) Create n empty buckets
+        // 1) criando um total de n buckets com base no tamanho do array
         List<Float>[] buckets = new ArrayList[n];
         for (int i = 0; i < n; i++) {
             buckets[i] = new ArrayList<>();
         }
 
-        // 2) Put array elements in different buckets
+        // 2) colocando os elementos em diferentes buckets
         for (int i = 0; i < n; i++) {
             int bi = (int) (n * arr[i]);
             buckets[bi].add(arr[i]);
         }
 
-        // 3) Sort individual buckets using insertion sort
+        // 3) organizando cada bucket individualmente com o insertionSort
         for (int i = 0; i < n; i++) {
             insertionSort(buckets[i]);
         }
 
-        // 4) Concatenate all buckets into arr[]
+        // 4) unindo todos os buckets em um array único
         int index = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < buckets[i].size(); j++) {
@@ -46,7 +46,7 @@ public class BucketSort {
         }
     }
 
-    // Driver program to test above function
+    //main para executar o algoritmo de ordenação
     public static void main(String[] args) {
         float[] arr = {0.897f, 0.565f, 0.656f, 0.1234f, 0.665f, 0.3434f, 0.100f, 0.101f, 0.324f, 0.542f, 0.867f, 0.975f};
         sort(arr);

@@ -1,13 +1,11 @@
 package LE1.Ex3;
 
-// Radix sort Java implementation
-
 import java.io.*;
 import java.util.*;
 
 class RadixSort {
 
-    // A utility function to get maximum value in arr[]
+   //funcao para encontrar o maior valor dentro do vetor
     static int getMax(int arr[], int n)
     {
         int mx = arr[0];
@@ -17,8 +15,7 @@ class RadixSort {
         return mx;
     }
 
-    // A function to do counting sort of arr[] according to
-    // the digit represented by exp.
+    // counting sort com base no tamanho do array
     static void countSort(int arr[], int n, int exp)
     {
         int output[] = new int[n]; // output array
