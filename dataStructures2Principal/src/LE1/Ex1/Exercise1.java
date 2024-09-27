@@ -1,31 +1,35 @@
-package LE1;
+package LE1.Ex1;
 
 public class Exercise1 {
 
     public static void main(String[] args) {
 
-        int[] array = createVector(10);
+        int[] array = createVector(100000);
         int[] copy1 = copyArray(array);
         int[] copy2 = copyArray(copy1);
+        int[] copy3 = copyArray(copy1);
 
         long startTime = System.currentTimeMillis();
-        ///
+        int[] testHeap = HeapSort.heapSort(copy1);
         long endTime = System.currentTimeMillis();
         long finalTime = endTime - startTime;
+        System.out.println("heap: " + finalTime);
 
         long startTime2 = System.currentTimeMillis();
-        ////
+        int[] testQuick =  QuickSort.quickSort(copy2,0,copy2.length - 1);
         long endTime2 = System.currentTimeMillis();
         long finalTime2 = endTime2 - startTime2;
+        System.out.println("quick: " + finalTime);
 
         long startTime3 = System.currentTimeMillis();
         ///
         long endTime3 = System.currentTimeMillis();
         long finalTime3 = endTime3 - startTime3;
 
-        System.out.println("Bubble sort: " + finalTime);
-        System.out.println("Selection sort: " + finalTime2);
-        System.out.println("Insertion sort: " + finalTime3);
+        long startTime4 = System.currentTimeMillis();
+        ///
+        long endTime4 = System.currentTimeMillis();
+        long finalTime4 = endTime4 - startTime4;
 
     }
 
@@ -46,6 +50,12 @@ public class Exercise1 {
         }
         return copy;
     }
+
+   private static void showArray(int[] array){
+        for(int element:array){
+            System.out.print(element + "\t");
+        }
+   }
 
 
 }
