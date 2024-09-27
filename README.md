@@ -4,7 +4,7 @@ In this repository you'll find sort algorithms, search algorithms, tree algorith
 
 And, don't forget...
 <p align="center">
-<img src="/java-gif.gif">
+<img src="/static/assets/java-gif.gif">
 </p>
 
  
