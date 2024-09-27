@@ -33,7 +33,7 @@ public class Exercise1 {
         long finalTime = endTime - startTime;
 
         long startTime2 = System.currentTimeMillis();
-        ////
+        int[] byHeapSort = HeapSort.heapSort(copy2);
         long endTime2 = System.currentTimeMillis();
         long finalTime2 = endTime2 - startTime2;
 
@@ -43,7 +43,7 @@ public class Exercise1 {
         long finalTime3 = endTime3 - startTime3;
 
         long startTime4 = System.currentTimeMillis();
-
+        int[] byQuickSort =  QuickSort.quickSort(copy4,0,copy4.length - 1);
         long endTime4 = System.currentTimeMillis();
         long finalTime4 = endTime4 - startTime4;
 
