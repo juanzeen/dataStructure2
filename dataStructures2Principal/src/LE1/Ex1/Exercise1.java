@@ -21,7 +21,7 @@ public class Exercise1 {
 
     public static void main(String[] args) {
 
-        int[] array = createVector(10);
+        int[] array = createVector(100000);
         int[] copy1 = copyArray(array);
         int[] copy2 = copyArray(array);
         int[] copy3 = copyArray(array);
@@ -38,7 +38,7 @@ public class Exercise1 {
         long finalTime2 = endTime2 - startTime2;
 
         long startTime3 = System.currentTimeMillis();
-        ///
+        int[] byMergeSort = MergeSort.sort(copy3, 0, copy3.length - 1);
         long endTime3 = System.currentTimeMillis();
         long finalTime3 = endTime3 - startTime3;
 
@@ -48,7 +48,7 @@ public class Exercise1 {
         long finalTime4 = endTime4 - startTime4;
 
         System.out.println("ShellShort: " + finalTime);
-        System.out.println("HeapSort" + finalTime2);
+        System.out.println("HeapSort: " + finalTime2);
         System.out.println("MergeSort: " + finalTime3);
         System.out.println("QuickSort: " + finalTime4);
 
