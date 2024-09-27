@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BucketSort {
-    // algoritmo de insertion sort para organizar cada bucket
+    // Algoritmo de insertion sort para organizar cada bucket
     public static void insertionSort(List<Float> bucket) {
         for (int i = 1; i < bucket.size(); ++i) {
             float key = bucket.get(i);
@@ -16,7 +16,7 @@ public class BucketSort {
         }
     }
 
-    // iniciando o bucketsort
+    // Iniciando o bucketsort
     public static void sort(float[] arr) {
         int n = arr.length;
 
