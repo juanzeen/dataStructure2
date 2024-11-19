@@ -27,30 +27,30 @@ public class Exercise1 {
         int[] copy3 = copyArray(array);
         int[] copy4 = copyArray(array);
 
-        long startTime = System.currentTimeMillis();
+        double startTime = System.currentTimeMillis();
         int[] byShellSort = ShellSort.sort(copy1);
-        long endTime = System.currentTimeMillis();
-        long finalTime = endTime - startTime;
+        double endTime = System.currentTimeMillis();
+        double finalTime = endTime - startTime;
 
-        long startTime2 = System.currentTimeMillis();
+        double startTime2 = System.currentTimeMillis();
         int[] byHeapSort = HeapSort.heapSort(copy2);
-        long endTime2 = System.currentTimeMillis();
-        long finalTime2 = endTime2 - startTime2;
+        double endTime2 = System.currentTimeMillis();
+        double finalTime2 = endTime2 - startTime2;
 
-        long startTime3 = System.currentTimeMillis();
+        double startTime3 = System.currentTimeMillis();
         int[] byMergeSort = MergeSort.sort(copy3, 0, copy3.length - 1);
-        long endTime3 = System.currentTimeMillis();
-        long finalTime3 = endTime3 - startTime3;
+        double endTime3 = System.currentTimeMillis();
+        double finalTime3 = endTime3 - startTime3;
 
-        long startTime4 = System.currentTimeMillis();
+        double startTime4 = System.currentTimeMillis();
         int[] byQuickSort =  QuickSort.quickSort(copy4,0,copy4.length - 1);
-        long endTime4 = System.currentTimeMillis();
-        long finalTime4 = endTime4 - startTime4;
+        double endTime4 = System.currentTimeMillis();
+        double finalTime4 = endTime4 - startTime4;
 
-        System.out.println("ShellShort: " + finalTime);
-        System.out.println("HeapSort: " + finalTime2);
-        System.out.println("MergeSort: " + finalTime3);
-        System.out.println("QuickSort: " + finalTime4);
+        System.out.println("ShellShort: " + finalTime + "ms");
+        System.out.println("HeapSort: " + finalTime2 + "ms");
+        System.out.println("MergeSort: " + finalTime3 + "ms");
+        System.out.println("QuickSort: " + finalTime4 + "ms");
 
     }
 
