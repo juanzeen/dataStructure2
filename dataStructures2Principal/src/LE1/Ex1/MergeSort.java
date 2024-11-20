@@ -1,7 +1,5 @@
 package LE1.Ex1;
 
-//A ideia é dividir o vetor até que fiquem somente elementos unitários;
-//Com isso, ele é novamente montado de forma recursiva e comparando os subvetores pelo caminho.
 public class MergeSort {
 
     public static void merge(int[] array, int floor, int mid, int top){
@@ -24,8 +22,10 @@ public class MergeSort {
         leftArray[lengthL -1] = Integer.MAX_VALUE;
         rightArray[lengthR - 1] = Integer.MAX_VALUE;
 
+        //declarando iteradores para montar vetor final
         int x = 0, y = 0;
 
+        //monta vetor final comparando elementos esquerdos e direitos
         for(int k = floor; k < top - 1; k++){
             if(leftArray[x] <= rightArray[y]){
                 array[k] = leftArray[x];
@@ -35,9 +35,9 @@ public class MergeSort {
                 y++;
             }
         }
-
     }
 
+    //chamada recursiva que tem como parada o valor inicial >= ao final
     public static int[] sort(int[] array, int floor, int top){
         if(floor < top){
             int mid = floor + (top - floor) /2;
@@ -47,5 +47,4 @@ public class MergeSort {
         }
         return array;
     }
-
 }

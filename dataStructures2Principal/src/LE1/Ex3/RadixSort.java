@@ -1,79 +1,74 @@
 package LE1.Ex3;
-import java.io.*;
 import java.util.*;
 
 class RadixSort {
 
-    private static int[] createVector(int size){
+    private static int[] createArray(int size){
 
-        int[] vector = new int[size];
-        for(int index = 0; index < vector.length;index++){
-            vector[index] = (int) (Math.random() * 101);
+        int[] array = new int[size];
+        for(int index = 0; index < array.length;index++){
+            array[index] = (int) (Math.random() * 1000000001);
         }
-        return vector;
+        return array;
     }
 
    //funcao para encontrar o maior valor dentro do vetor
     static int getMax(int[] array)
     {
-        int m = 0;
+        int max = 0;
 
         //loop para achar o maior valor do array
         for (int x : array) {
-            m = Math.max(m, x);
+            max = Math.max(max, x);
         }
 
-        return m;
+        return max;
     }
 
-    // counting sort com base no tamanho do array
-    static void countSort(int[] arr, int n, int exp)
+    static void countingSort(int[] array, int n, int exp)
     {
-        int[] output = new int[n]; // output array
+        int[] outputArray = new int[n]; // output array
         int i;
-        int[] count = new int[10];
-        Arrays.fill(count, 0);
+        int[] countArray = new int[10];
+        Arrays.fill(countArray, 0);
 
-        // armazena a contagem em um vetor
+        //a única mudança é a forma de acessar o elemento no array original
         for (i = 0; i < n; i++)
-            count[(arr[i] / exp) % 10]++;
+            countArray[(array[i] / exp) % 10]++;
 
-        //Altera a contagem para que tenha o índice do vetor de saída
         for (i = 1; i < 10; i++)
-            count[i] += count[i - 1];
+            countArray[i] += countArray[i - 1];
 
-        // Cria o vetor de saída
         for (i = n - 1; i >= 0; i--) {
-            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
-            count[(arr[i] / exp) % 10]--;
+            outputArray[countArray[(array[i] / exp) % 10] - 1] = array[i];
+            countArray[(array[i] / exp) % 10]--;
         }
 
-        //Copia o vetor saída no vetor original para que ele fique organizado
         for (i = 0; i < n; i++)
-            arr[i] = output[i];
+            array[i] = outputArray[i];
     }
 
     // Função principal do radixSort
-    static void radixsort(int[] arr, int n)
+    static void radixsort(int[] array, int n)
     {
         // Achando valor máximo
-        int m = getMax(arr);
+        int bigger = getMax(array);
 
         //Faz countingSort com base em cada dígito, ao invés de passar o dígito passamos exp,
-        //onde exp é 10^i, que é o digito atual do número
-        for (int exp = 1; m / exp > 0; exp *= 10)
-            countSort(arr, n, exp);
+        //onde exp é 10^i, que é usado para encontrar o dígito atual do número
+        for (int exp = 1; bigger / exp > 0; exp *= 10)
+            countingSort(array, n, exp);
     }
 
-    static void print(int[] arr, int n)
+    static void print(int[] array, int n)
     {
         for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
+            System.out.print(array[i] + " ");
     }
 
     public static void main(String[] args)
     {
-        int[] arr = createVector(1000000);
+        int[] arr = createArray(1000);
 
 
         radixsort(arr, arr.length);
